@@ -11,7 +11,7 @@ z = -sqrt(8-x.^2-y.^2);
 mf = matlabFunction(z);
 Z = mf(X,Y);
 
-start = [-0.5,2,mf(-0.5,2)];
+%start = [-0.5,2,mf(-0.5,2)]; % will be assigned afterwards
 direction = [0,-1,0];
 step_forward = 0.2;
 use_GPU = true;
@@ -27,7 +27,6 @@ s = surf(X(1:10:end,1:10:end),Y(1:10:end,1:10:end),Z(1:10:end,1:10:end));
 s.EdgeColor = 'none';
 
 % plot the geodesics from different start points
-route_set = [];
 for i = -2:0.2:2
     % calc each geodesic
     start = [i,2,mf(i,2)];
